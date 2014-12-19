@@ -1,5 +1,6 @@
 module Xmpush
   class Message
-    attr_accessor :title, :description, :time_to_live, :time_to_send, :secret_key, :extra
+    EXTRA_PREFIX = 'extra.'
+    attr_accessor :payload, :title, :description, :time_to_live, :time_to_send, :extra, :notify_type, :topic, :expires
   end
 end
