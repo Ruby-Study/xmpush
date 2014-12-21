@@ -10,7 +10,13 @@ module Xmpush
     NTF_CENTER_NTF   = 0 # 通知栏消息
     PASS_THROUGH_NTF = 1 # 透传消息
 
-    attr_accessor :pass_through, :restricted_package_name, :notify_id, :enable_flow_controll
+    attr_accessor :pass_through, :notify_id
+
+    def initialize(pass_through=0, notify_id=0)
+      super
+      @pass_through = pass_through
+      @notify_id = notify_id
+    end
 
   end
 end

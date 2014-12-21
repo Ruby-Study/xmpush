@@ -1,6 +1,8 @@
 module Xmpush
   class XmResource
 
+    # Xmpush::XmResource::OFFICIAL_DOMAIN
+
     OFFICIAL_DOMAIN = "https://api.xmpush.xiaomi.com"
     SANDBOX_DOMAIN = "https://sandbox.xmpush.xiaomi.com"
     REG_URL = "/v2/message/regid"
@@ -27,7 +29,6 @@ module Xmpush
     INTERSECTION = 'INTERSECTION'
     EXCEPT = 'EXCEPT'
 
-    
 
   end
 end

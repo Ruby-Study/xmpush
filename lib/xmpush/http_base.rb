@@ -3,24 +3,24 @@ require 'faraday'
 
 module Xmpush
   class HttpBase
-    attr_accessor :secret_key, :url
+    attr_accessor :secret_key, :url, :host
 
-    def initialize(url, secret_key = "", connection_adapter = :net_http)
-      @connection_adapter = connection_adapter
+    def initialize(host="", secret_key="", connection_adapter = :net_http, headers={})
+      @host = host
       @secret_key = secret_key
-      @url = url
+      @connection_adapter = connection_adapter
+      @headers = headers
     end
 
-    def request(method, headers={})
-      conn = Faraday.new(:url => url) do |faraday|
+    def post(url, body={}); conn.post url, body end
+    def get(url, params={}); conn.get url, params end
+
+    def conn
+      headers = {authorization: "key=#{@secret_key}"}.merge(@headers)
+      Faraday.new(:url => @host, :headers => headers) do |faraday|
         faraday.request  :url_encoded
         faraday.response :logger
         faraday.adapter  @connection_adapter
-      end
-      resp = conn.send(method.downcase) do |req|
-        req.headers['Content-Type'] = 'application/json'
-        req.headers['Authorization'] = secret_key
-        headers.each {|k,v| req.headers[k] = v}
       end
     end
 
