@@ -45,16 +45,16 @@ module Xmpush
       case push_type
       when :alias
         return "must input alias" unless options[:alias]
-        message.merge!(alias: options[:alias])
-        resource_post('alias', message)
+        message.values.each{|v| v.merge!(alias: options[:alias])}
+        resource_post('alias', message, options)
       when :regid
         return "must input regid" unless options[:regid]
-        message.merge!(regid: options[:regid])
-        resource_post('regid', message)
+        message.values.each{|v| v.merge!(regid: options[:regid])}
+        resource_post('regid', message, options)
       when :topic
         return "must input topic" unless options[:topic]
-        message.merge!(topic: options[:topic])
-        resource_post('topic', message)
+        message.values.each{|v| v.merge!(topic: options[:topic])}
+        resource_post('topic', message, options)
       else #:all
         resource_post('all', message)
       end
@@ -83,11 +83,11 @@ private
       Xmpush::HttpBase.new(host, @android_secret, @connection_adapter)
     end
 
-    def resource_post(name, message)
+    def resource_post(name, message, options)
       ios_result = ios_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:ios]) if message[:ios]
       puts "====== ios_result: #{ios_result.inspect}"
       android_result = android_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:android]) if message[:android]
-      puts "====== ios_result: #{android_result.inspect}"
+      puts "====== android_result: #{android_result.inspect}"
     end
 
   end
