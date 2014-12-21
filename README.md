@@ -2,7 +2,20 @@
 
 [XiaoMi push](dev.xiaomi.com) Ruby SDK
 
-## Usage：
+## Install
+
+```ruby
+gem install xmpush
+```
+
+in Gemfile:
+
+```ruby
+gem 'xmpush'
+```
+
+## Usage
+
 
 ```ruby
 @xm_service = Xmpush::Service.config do |s|
