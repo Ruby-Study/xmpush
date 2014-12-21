@@ -1,6 +1,6 @@
 ## About
 
-[XiaoMi push](dev.xiaomi.com) Ruby SDK
+[XiaoMi push](http://dev.xiaomi.com/) Ruby SDK
 
 ## Install
 
