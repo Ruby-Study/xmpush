@@ -3,10 +3,11 @@ module Xmpush
     attr_accessor :sound_url, :badge
 
     def initialize(**message)
-      sound_url = message.delete(:sound_url) || ""
-      badge = message.delete(:badge) || 1
+      extra = message.delete(:extra)
+      sound_url = extra.delete(:sound_url) || ""
+      badge = extra.delete(:badge) || 1
       super(message)
-      @extra = {sound_url: sound_url, badge: badge}
+      @extra = extra.merge(sound_url: sound_url, badge: badge)
     end
 
     def build
