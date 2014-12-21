@@ -2,7 +2,7 @@ module Xmpush
   class IosBuilder < Message
     attr_accessor :sound_url, :badge
 
-    def initialize(sound_url="", badge=1)
+    def initialize(sound_url: "", badge: 1)
       super
       @extra = {sound_url: sound_url, badge: badge}
     end
