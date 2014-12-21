@@ -19,7 +19,7 @@ gem 'xmpush'
 
 ```ruby
 @xm_service = Xmpush::Service.config do |s|
-  s.sandbox = true
+  s.sandbox = true # default false
   s.ios_secret = "ios secret key"
   s.bundle_id = "com.xxx.ios"
   s.android_secret = 'android secret key'
