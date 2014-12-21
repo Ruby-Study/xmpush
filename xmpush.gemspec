@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["blackanger.z@gmail.com"]
   spec.summary       = %q{XiaoMi push Ruby Server SDK.}
   spec.description   = %q{XiaoMi push Ruby Server SDK}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/Ruby-Study/xmpush"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
