@@ -67,7 +67,7 @@ private
     end
 
     def android_builder(message={})
-      message[:restricted_package_name] = @bundle_id
+      message[:restricted_package_name] = @package_name
       AndroidBuilder.new(message).build
     end
 
