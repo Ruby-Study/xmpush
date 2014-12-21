@@ -28,14 +28,14 @@ gem 'xmpush'
 end
 
 # just iOS
-@message1 = @xm_service.build(:ios, description:  'hello')
+@message1 = @xm_service.build(:ios, description: 'hello')
 @xm_service.push(:all, @message1)
 
-@message2 = @xm_service.build(:ios, description:  'hello alias', extra: {pid: 111})
+@message2 = @xm_service.build(:ios, description: 'hello alias', extra: {pid: 111})
 @xm_service.push(:alias, @message2, alias: '1043478')
 
 # iOS and Android
-@message3 = @xm_service.build(description:  'push to iOS and Android client')
+@message3 = @xm_service.build(description: 'push to iOS and Android client')
 @xm_service.push(:all, @message3)
 
 ```
