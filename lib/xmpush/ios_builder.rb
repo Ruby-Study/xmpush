@@ -11,9 +11,7 @@ module Xmpush
     end
 
     def build
-      if @extra
-        extra_message = extra(@extra)
-      end
+      extra_message = extra(@extra) if @extra
       message = {
         restricted_package_name: @restricted_package_name,
         description: @description
