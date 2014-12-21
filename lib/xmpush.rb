@@ -59,8 +59,8 @@ module Xmpush
       end
     end
 
-private
-
+    private
+    
     def ios_builder(message={})
       message[:restricted_package_name] = @bundle_id
       IosBuilder.new(message).build
