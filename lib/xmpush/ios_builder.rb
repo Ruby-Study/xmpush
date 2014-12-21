@@ -2,8 +2,10 @@ module Xmpush
   class IosBuilder < Message
     attr_accessor :sound_url, :badge
 
-    def initialize(sound_url: "", badge: 1)
-      super()
+    def initialize(**message)
+      sound_url = message.delete(:sound_url) || ""
+      badge = message.delete(:badge) || 1
+      super(message)
       @extra = {sound_url: sound_url, badge: badge}
     end
 
