@@ -47,4 +47,5 @@ message3 = {description:  'push to iOS and Android client'}
 ## TODO
 
 - Android push
-- feedback/ stats/ tracer/ targeted_message
+- Multi push
+- Feedback/ Stats/ Tracer/ Targeted_message
