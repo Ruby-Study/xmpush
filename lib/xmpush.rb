@@ -77,7 +77,7 @@ private
     end
 
     def android_http
-      return "android don't suppot sandbox" if @sandbox
+      return "android don't support sandbox" if @sandbox
       host = @sandbox ? Xmpush::XmResource::SANDBOX_DOMAIN : Xmpush::XmResource::OFFICIAL_DOMAIN
       Xmpush::HttpBase.new(host, @android_secret, @connection_adapter)
     end
