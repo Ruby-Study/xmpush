@@ -32,7 +32,7 @@ message1 = {description:  'hello'}
 @message1 = @xm_service.build(:ios, message1)
 @xm_service.push(:all, @message1)
 
-message2 = {description:  'hello alias'}
+message2 = {description:  'hello alias', extra: {pid: 111}}
 @message2 = @xm_service.build(:ios, message2)
 
 @xm_service.push(:alias, @message2, alias: '1043478')
