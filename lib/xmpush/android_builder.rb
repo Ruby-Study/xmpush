@@ -13,7 +13,7 @@ module Xmpush
     attr_accessor :pass_through, :notify_id
 
     def initialize(pass_through: 0, notify_id: 0)
-      super
+      super()
       @pass_through = pass_through
       @notify_id = notify_id
     end

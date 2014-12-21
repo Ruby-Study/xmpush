@@ -3,7 +3,7 @@ module Xmpush
     attr_accessor :sound_url, :badge
 
     def initialize(sound_url: "", badge: 1)
-      super
+      super()
       @extra = {sound_url: sound_url, badge: badge}
     end
 
