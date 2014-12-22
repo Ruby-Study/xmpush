@@ -18,6 +18,7 @@ module Xmpush
       @notify_id = message[:notify_id] || 0
       super(message)
       @notify_type  = message[:notify_type] || NOTIFY_TYPE_DEFAULT_ALL
+      extra_message = {sound_url: ""}
       extra_message.merge!(extra) if extra
       @extra = extra_message
     end
