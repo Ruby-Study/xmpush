@@ -34,7 +34,7 @@ module Xmpush
         build_message = { ios: ios_builder(message)}
       when :android
         build_message = { android: android_builder(message) }
-      else
+      when :both
         puts "---- build ios and android"
         build_message = { ios: ios_builder(message),  android: android_builder(message)}
       end
