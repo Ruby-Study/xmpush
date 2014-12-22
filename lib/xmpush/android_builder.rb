@@ -23,5 +23,17 @@ module Xmpush
       @extra = extra_message
     end
 
+    def build
+      extra_message = extra(@extra) if @extra
+      message = {
+        payload: @payload,
+        title: @title,
+        restricted_package_name: @restricted_package_name,
+        description: @description
+      }
+      message.merge!(extra_message)
+      return message
+    end
+
   end
 end
