@@ -28,6 +28,9 @@ module Xmpush
       message = {
         payload: @payload,
         title: @title,
+        notify_id: @notify_id,
+        pass_through: @pass_through,
+        notify_type: @notify_type,
         restricted_package_name: @restricted_package_name,
         description: @description
       }

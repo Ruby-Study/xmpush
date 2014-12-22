@@ -63,12 +63,14 @@ module Xmpush
 
     def ios_builder(message={})
       message[:restricted_package_name] = @bundle_id
-      IosBuilder.new(message).build
+      ios = IosBuilder.new(message).build
+      puts "----- ios: #{ios.inspect}"
     end
 
     def android_builder(message={})
       message[:restricted_package_name] = @package_name
-      AndroidBuilder.new(message).build
+      android = AndroidBuilder.new(message).build
+      puts "----- android: #{android.inspect}"
     end
 
     def ios_http
@@ -77,8 +79,8 @@ module Xmpush
     end
 
     def android_http
-      return "android don't support sandbox" if @sandbox
-      host = @sandbox ? Xmpush::XmResource::SANDBOX_DOMAIN : Xmpush::XmResource::OFFICIAL_DOMAIN
+      # return "android don't support sandbox" if @sandbox
+      host = Xmpush::XmResource::OFFICIAL_DOMAIN
       Xmpush::HttpBase.new(host, @android_secret, @connection_adapter)
     end
 
