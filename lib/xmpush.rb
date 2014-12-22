@@ -35,6 +35,7 @@ module Xmpush
       when :android
         build_message = { android: android_builder(message) }
       else
+        puts "---- build ios and android"
         build_message = { ios: ios_builder(message),  android: android_builder(message)}
       end
       return build_message
@@ -65,12 +66,14 @@ module Xmpush
       message[:restricted_package_name] = @bundle_id
       ios = IosBuilder.new(message).build
       puts "----- ios: #{ios.inspect}"
+      ios
     end
 
     def android_builder(message={})
       message[:restricted_package_name] = @package_name
       android = AndroidBuilder.new(message).build
       puts "----- android: #{android.inspect}"
+      android
     end
 
     def ios_http
