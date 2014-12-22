@@ -42,6 +42,5 @@ end
 
 ## TODO
 
-- Android push
 - Multi push
 - Feedback/ Stats/ Tracer/ Targeted_message
