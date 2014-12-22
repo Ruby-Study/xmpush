@@ -10,13 +10,16 @@ module Xmpush
     NTF_CENTER_NTF   = 0 # 通知栏消息
     PASS_THROUGH_NTF = 1 # 透传消息
 
-    attr_accessor :pass_through, :notify_id
+    attr_accessor :pass_through, :notify_id, :sound_url
 
     def initialize(**message)
-      @pass_through = message.delete(:pass_through) || 0
-      @notify_id = message.delete(:notify_id) || 0
+      extra = message.delete(:extra) if message[:extra]
+      @pass_through = message[:pass_through] || NTF_CENTER_NTF
+      @notify_id = message[:notify_id] || 0
       super(message)
-      # @extra = {sound_url: sound_url, badge: badge}
+      @notify_type  = message[:notify_type] || NOTIFY_TYPE_DEFAULT_ALL
+      extra_message.merge!(extra) if extra
+      @extra = extra_message
     end
 
   end
