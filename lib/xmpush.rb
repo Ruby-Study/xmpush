@@ -35,7 +35,6 @@ module Xmpush
       when :android
         build_message = { android: android_builder(message) }
       when :both
-        puts "---- build ios and android"
         build_message = { ios: ios_builder(message),  android: android_builder(message)}
       end
       return build_message
@@ -55,7 +54,7 @@ module Xmpush
         return "must input topic" unless options[:topic]
         message.values.each{|v| v.merge!(topic: options[:topic])}
         resource_post('topic', message)
-      else #:all
+      when :all
         resource_post('all', message)
       end
     end
@@ -64,16 +63,12 @@ module Xmpush
 
     def ios_builder(message={})
       message[:restricted_package_name] = @bundle_id
-      ios = IosBuilder.new(message).build
-      puts "----- ios: #{ios.inspect}"
-      ios
+      IosBuilder.new(message).build
     end
 
     def android_builder(message={})
       message[:restricted_package_name] = @package_name
-      android = AndroidBuilder.new(message).build
-      puts "----- android: #{android.inspect}"
-      android
+      AndroidBuilder.new(message).build
     end
 
     def ios_http

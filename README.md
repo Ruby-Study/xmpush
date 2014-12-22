@@ -35,7 +35,7 @@ end
 @xm_service.push(:alias, @message2, alias: '1043478')
 
 # iOS and Android
-@message3 = @xm_service.build(description: 'push to iOS and Android client')
+@message3 = @xm_service.build(:both, title: "I'm title", description: 'push to iOS and Android client')
 @xm_service.push(:all, @message3)
 
 ```
