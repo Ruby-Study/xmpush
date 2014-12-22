@@ -13,7 +13,7 @@ require 'xmpush/feedback'
 module Xmpush
   class Service
 
-    attr_accessor :ios_secret, :android_secret, :bundle_id, :package_name, :sandbox
+    attr_accessor :ios_secret, :android_secret, :bundle_id, :package_name, :connection_adapter, :sandbox
 
     def initialize(ios_secret: "", android_secret: "", bundle_id: "", package_name: "", connection_adapter: :net_http, sandbox: false)
       @sandbox = sandbox
@@ -60,7 +60,7 @@ module Xmpush
     end
 
     private
-    
+
     def ios_builder(message={})
       message[:restricted_package_name] = @bundle_id
       IosBuilder.new(message).build
