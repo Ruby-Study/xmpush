@@ -13,10 +13,10 @@ module Xmpush
     attr_accessor :pass_through, :notify_id, :sound_url
 
     def initialize(**message)
+      super(message)
       extra = message.delete(:extra) if message[:extra]
       @pass_through = message[:pass_through] || NTF_CENTER_NTF
       @notify_id = message[:notify_id] || 0
-      super(message)
       @notify_type  = message[:notify_type] || NOTIFY_TYPE_DEFAULT_ALL
       extra_message = {sound_url: ""}
       extra_message.merge!(extra) if extra
