@@ -14,9 +14,7 @@ module Xmpush
       extra_message = extra(@extra) if @extra
       message = {
         restricted_package_name: @restricted_package_name,
-        description: @description,
-        sound_url: @sound_url,
-        notify_type: @notify_type
+        description: @description
       }
       message.merge!(extra_message)
       return message
