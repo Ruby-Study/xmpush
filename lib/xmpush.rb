@@ -54,6 +54,10 @@ module Xmpush
         return "must input topic" unless options[:topic]
         message.values.each{|v| v.merge!(topic: options[:topic])}
         resource_post('topic', message)
+      when :topics
+        return "must input topics" unless options[:topics]
+        message.values.each{|v| v.merge!(topics: options[:topics].join(";$;"))}
+        resource_post('mtopic', message)
       when :all
         resource_post('all', message)
       end

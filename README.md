@@ -34,6 +34,13 @@ end
 @message2 = @xm_service.build(:ios, description: 'hello alias', extra: {pid: 111})
 @xm_service.push(:alias, @message2, alias: '1043478')
 
+@message3 = @xm_service.build(:ios, description: 'hello topic', extra: {pid: 111})
+@xm_service.push(:topic, @message2, topic: 'all')
+
+#multi_topic
+@message3 = @xm_service.build(:ios, description: 'hello topic', extra: {pid: 111})
+@xm_service.push(:topics, @message2, topics: ['all', "other"])
+
 # iOS and Android
 @message3 = @xm_service.build(:both, title: "I'm title", description: 'push to iOS and Android client')
 @xm_service.push(:all, @message3)
