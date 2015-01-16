@@ -12,7 +12,7 @@ module Xmpush
       @headers = headers
     end
 
-    def post(url, body={}); puts "---- #{url.inspect}"; puts "---- #{body.inspect}"; conn.post url, body end
+    def post(url, body={});  conn.post url, body end
     def get(url, params={}); conn.get url, params end
 
     def conn
