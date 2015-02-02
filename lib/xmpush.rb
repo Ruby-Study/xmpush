@@ -87,10 +87,8 @@ module Xmpush
     end
 
     def resource_post(name, message)
-      ios_result = ios_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:ios]) if message[:ios]
-      puts "====== ios_result: #{ios_result.inspect}"
-      android_result = android_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:android]) if message[:android]
-      puts "====== android_result: #{android_result.inspect}"
+      ios_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:ios]) if message[:ios]
+      android_http.post(Xmpush::XmResource.const_get("#{name.upcase}_URL"), message[:android]) if message[:android]
     end
 
   end
