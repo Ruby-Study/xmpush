@@ -19,7 +19,7 @@ module Xmpush
       headers = {authorization: "key=#{@secret_key}"}.merge(@headers)
       Faraday.new(:url => @host, :headers => headers) do |faraday|
         faraday.request  :url_encoded
-        faraday.response :logger
+        # faraday.response :logger
         faraday.adapter  @connection_adapter
       end
     end
